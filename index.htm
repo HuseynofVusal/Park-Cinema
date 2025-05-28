@@ -6,50 +6,166 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="output.css">
     <link rel="stylesheet" href="input.css">
     <title>Document</title>
 </head>
 
-<body>
-    <header class="w-full absolute top-0 z-1000">
-        <nav class="!max-w-[1200px] mx-auto flex items-center justify-between">
-            <div class="flex items-center">
-                <a class="w-[150px] h-[80px] flex items-center" href=""><img class=" object-cover"
+<body class="bg-[#373737]">
+    <header class="w-full md:absolute top-0 z-1000">
+        <nav class="max-w-[95%] mx-auto flex items-center justify-between">
+            <div class="flex items-center gap-36 m-auto md:m-0">
+                <a class="w-[150px] h-[80px] flex items-center" href=""><img class="object-cover"
                         src="https://new.parkcinema.az/images/logo.svg" alt=""></a>
-                <ul class="flex items-center">
-                    <li><a href="">Kinoteatlar</a></li>
-                    <li><a href="">Aksiyalar</a></li>
-                    <li><a href="">FAQ</a></li>
-                    <li><a href="">Elaqe</a></li>
-                    <li><a href="">Profil</a></li>
+                <ul class="hidden md:flex items-center gap-[60px] text-[#d9dadb]">
+                    <li><a href="#" class="hover:text-[#d52b1e] duration-300">Kinoteatrlar</a></li>
+                    <li><a href="#" class="hover:text-[#d52b1e] duration-300">Aksiyalar</a></li>
+                    <li><a href="#" class="hover:text-[#d52b1e] duration-300">FAQ</a></li>
+                    <li><a href="#" class="hover:text-[#d52b1e] duration-300">Əlaqə</a></li>
+                    <li><a href="#" class="hover:text-[#d52b1e] duration-300">Profil</a></li>
                 </ul>
             </div>
-            <div class="flex justify-between items-center gap-3">
-                <img class="w-[25px] h-[25px]" src="" alt="">
-                <span>AZE</span>
-                <i class="ri-arrow-down-s-line"></i>
+            <div class="relative hidden md:block">
+                <div class="flex items-center gap-3 text-white cursor-pointer" onclick="showLanguages()">
+                    <img class="w-[25px] h-[25px]" src="img/az-flag.svg" alt="Flag">
+                    <span class="text-sm">AZE</span>
+                    <i class="ri-arrow-down-s-line"></i>
+                </div>
+                <ul id="languages" class="bg-[#dbd9d9] hidden absolute w-full rounded-md items-start flex-col gap-4 py-3 px-1 mt-2">
+                    <li class="flex justify-between items-left gap-3 cursor-pointer">
+                        <img class="w-[25px] h-[25px]" src="img/az-flag.svg" alt="Flag">
+                        <span class="text-sm">AZE</span>
+                    </li>
+                    <li class="flex justify-between items-left gap-3 cursor-pointer">
+                        <img class="w-[25px] h-[25px]" src="img/en-flag.svg" alt="Flag">
+                        <span class="text-sm">EN</span>
+                    </li>
+                    <li class="flex justify-between items-left gap-3 cursor-pointer">
+                        <img class="w-[25px] h-[25px]" src="img/ru-flag.svg" alt="Flag">
+                        <span class="text-sm">RU</span>
+                    </li>
+                </ul>
             </div>
         </nav>
     </header>
     <main>
-        <section class="">
-            <div class="swiper h-screen">
-                <div class="swiper-wrapper ">
-                    <div class="swiper-slide"><img class="object-cover"
+        <section class="my-8 md:m-0">
+            <div class="swiper !h-[35vh] !w-[97%] md:!h-screen md:!w-full rounded-[18px] md:rounded-none">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide w-full h-full md:h-dvh"><img class="object-cover w-full h-full md:h-dvh"
                             src="./img/1744884456470_1744884456469_tagiyev__sayt_banner.webp" alt=""></div>
-                    <div class="swiper-slide"><img class="object-cover"
+                    <div class="swiper-slide w-full h-full md:h-dvh"><img class="object-cover w-full h-full md:h-dvh"
                             src="./img/1744883815570_1744883815569_wolt_post_sayt_banner.webp" alt=""></div>
                 </div>
                 <!-- Add Navigation -->
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev !text-[#d9dadb]"></div>
+                <div class="swiper-button-next !text-[#d9dadb]"></div>
             </div>
         </section>
+        <div class="fixed md:hidden left-8 mx-3 bottom-8 cursor-pointer w-14 h-14 flex items-center justify-center border border-[#D9DADB] rounded-full bg-[#ff00004a] text-[#D9DADB] z-50" onclick="showHamburgerMenu()">
+            <i class="fa-solid fa-bars text-[1.2rem]"></i>
+        </div>
+        <div onclick="showHamburgerMenu()" id="overlay" class="fixed hidden left-0 right-0 bottom-0 top-0 w-full h-full bg-[#0000005A] z-50"></div>
+        <div id="hamburger-menu" class="fixed hidden md:hidden bottom-0 right-0 left-0 h-[80vh] bg-[#353535d6] z-100 rounded-tl-2xl rounded-tr-2xl">
+            <div onclick="showHamburgerMenu()" class="absolute cursor-s-resize left-[50%] top-3 transform -translate-x-1/2 rounded-[2px] w-[80px] h-[4px] bg-[#6b6b6b]"></div>
+            <div class="grid grid-cols-2 gap-3 px-5 py-4 mt-10">
+                <a href="#" class="flex items-center gap-2 px-2.5 py-2 rounded-xl min-h-[72px] bg-[#D9DADB]">
+                    <img src="img/glasses.webp" alt="Profil" class="w-[44px] h-[44px]">
+                    <span class="text-[#202735]">Profil</span>
+                </a>
+                <a href="#" class="flex items-center gap-2 px-2.5 py-2 rounded-xl min-h-[72px] bg-[#D9DADB]">
+                    <img src="img/ticket.webp" alt="Mənim Biletlərim" class="w-[44px] h-[44px]">
+                    <span class="text-[#202735]">Mənim Biletlərim</span>
+                </a>
+                <a href="#" class="flex items-center justify-center gap-2 px-2.5 py-3 bg-[#D9DADB] rounded-xl min-h-[72px] col-span-2">
+                    <img src="img/film.webp" alt="Kinoteatrlar" class="w-[44px] h-[44px]">
+                    <span class="text-[#202735]">Kinoteatrlar</span>
+                </a>
+                <a href="#" class="flex items-center justify-center gap-2 px-2.5 py-3 bg-[#D9DADB] rounded-xl min-h-[72px] col-span-2">
+                    <img src="img/alarm.webp" alt="Aksiyalar" class="w-[44px] h-[44px]">
+                    <span class="text-[#202735]">Aksiyalar</span>
+                </a>
+                <a href="#" class="flex items-center gap-2 px-2.5 py-2 rounded-xl min-h-[72px] bg-[#D9DADB]">
+                    <img src="img/call.svg" alt="Call" class="w-[44px] h-[44px]">
+                    <span class="text-[#202735]">Əlaqə</span>
+                </a>
+                <a href="#" class="flex items-center gap-2 px-2.5 py-2 rounded-xl min-h-[72px] bg-[#D9DADB]">
+                    <img src="img/faq.svg" alt="FAQ" class="w-[44px] h-[44px]">
+                    <span class="text-[#202735]">FAQ</span>
+                </a>
+                <a href="#" class="flex items-center gap-2 px-2.5 py-2 rounded-xl min-h-[72px] bg-[#D9DADB]">
+                    <img src="img/terms.svg" alt="Terms" class="w-[44px] h-[44px]">
+                    <span class="text-[#202735]">Hüquqi Şərtlər</span>
+                </a>
+                <a href="#" class="flex items-center gap-2 rounded-xl min-h-[72px] bg-[#D9DADB]">
+                    <img src="img/google-play.svg" alt="Google-Play" class="w-full h-full">
+                </a>
+            </div>
+            <div class="relative px-5">
+                <div class="flex items-center gap-3 text-white cursor-pointer" onclick="showLanguages()">
+                    <img class="w-[25px] h-[25px]" src="img/az-flag.svg" alt="Flag">
+                    <span class="text-sm">AZE</span>
+                    <i class="ri-arrow-down-s-line"></i>
+                </div>
+                <ul id="languages" class="bg-[#dbd9d9] hidden absolute w-full rounded-md items-start flex-col gap-4 py-3 px-1 mt-2">
+                    <li class="flex justify-between items-left gap-3 cursor-pointer">
+                        <img class="w-[25px] h-[25px]" src="img/az-flag.svg" alt="Flag">
+                        <span class="text-sm">AZE</span>
+                    </li>
+                    <li class="flex justify-between items-left gap-3 cursor-pointer">
+                        <img class="w-[25px] h-[25px]" src="img/en-flag.svg" alt="Flag">
+                        <span class="text-sm">EN</span>
+                    </li>
+                    <li class="flex justify-between items-left gap-3 cursor-pointer">
+                        <img class="w-[25px] h-[25px]" src="img/ru-flag.svg" alt="Flag">
+                        <span class="text-sm">RU</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </main>
+    <footer class="!bg-[#86312A] py-8 w-full">
+        <div class="max-w-[95%] mx-auto">
+            <div class="flex items-start md:gap-30">
+                <a class="w-[150px] h-[80px] flex items-center" href=""><img class="object-cover"
+                        src="https://new.parkcinema.az/images/logo.svg" alt=""></a>
+                <ul class="text-[#d9dadb] font-medium flex items-left flex-col gap-[1.25rem]">
+                    <li>Kinoteatrlar</li>
+                    <li>Aksiyalar</li>
+                    <li>FAQ</li>
+                </ul>
+                <ul class="text-[#d9dadb] font-medium flex items-left flex-col gap-[1.25rem]">
+                    <li>Profil</li>
+                    <li>Əlaqə</li>
+                    <li>Hüquqi Şərtlər</li>
+                </ul>
+                <div>
+                    <div class="text-[#d9dadb] mb-5 font-medium">Bizi izləyin</div>
+                    <ul class="flex items-center gap-5">
+                        <li class="bg-[#d9dadb] rounded-full w-[40px] h-[40px] flex items-center justify-center">
+                            <i class="fa-brands fa-instagram text-[#86312A] text-[1.1rem]"></i>
+                        </li>
+                        <li class="bg-[#d9dadb] rounded-full w-[40px] h-[40px] flex items-center justify-center">
+                            <i class="fa-brands fa-facebook text-[#86312A] text-[1.1rem]"></i>
+                        </li>
+                        <li class="bg-[#d9dadb] rounded-full w-[40px] h-[40px] flex items-center justify-center">
+                            <i class="fa-brands fa-youtube text-[#86312A] text-[1.1rem]"></i>
+                        </li>
+                        <li class="bg-[#d9dadb] rounded-full w-[40px] h-[40px] flex items-center justify-center">
+                            <i class="fa-brands fa-telegram text-[#86312A] text-[1.1rem]"></i>
+                        </li>
+                        <li class="bg-[#d9dadb] rounded-full w-[40px] h-[40px] flex items-center justify-center">
+                            <i class="fa-brands fa-tiktok text-[#86312A] text-[1.1rem]"></i>
+                        </li>
+                    </ul>
+                </div>
+                 
+            </div>
+        </div>
+    </footer>
 
-
+    <script src="js/index.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
         function myPlugin({ swiper, extendParams, on }) {
