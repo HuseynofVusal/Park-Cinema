@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <header class="w-full absolute top-0 z-1000">
+    <!-- <header class="w-full absolute top-0 z-1000">
         <nav class="!max-w-[1200px] mx-auto flex items-center justify-between">
             <div class="flex items-center">
                 <a class="w-[150px] h-[80px] flex items-center" href=""><img class=" object-cover"
@@ -32,21 +32,55 @@
                 <i class="ri-arrow-down-s-line"></i>
             </div>
         </nav>
-    </header>
+    </header> -->
     <main>
-        <section class="">
-            <div class="swiper h-screen">
-                <div class="swiper-wrapper ">
-                    <div class="swiper-slide"><img class="object-cover"
-                            src="./img/1744884456470_1744884456469_tagiyev__sayt_banner.webp" alt=""></div>
-                    <div class="swiper-slide"><img class="object-cover"
-                            src="./img/1744883815570_1744883815569_wolt_post_sayt_banner.webp" alt=""></div>
+
+        <div class="w-full bg-[#555]">
+            <ul class="flex my-8 p-4 ">
+                <li onclick="toggleShadow(this)" class="w-1/2 text-center text-3xl font-bold text-white cursor-pointer">
+                    Siyahi</li>
+                <li onclick="toggleShadow(this)" class="w-1/2 text-center text-3xl font-bold text-white cursor-pointer">
+                    Treyler</li>
+            </ul>
+            <ul class="flex p-3">
+                <li
+                    class="text-xl mx-3 p-3 border-b-2 border-b-transparent hover:border-b-2 hover:border-[#dedede] cursor-pointer hover:text-[#fff] text-[#a8a8a8]">
+                    Hamisi</li>
+                <li
+                    class="text-xl mx-3 p-3 border-b-2 border-b-transparent hover:border-b-2 hover:border-[#dedede] cursor-pointer hover:text-[#fff]  text-[#a8a8a8]">
+                    Tezlikle</li>
+                <li
+                    class="text-xl mx-3 p-3 border-b-2 border-b-transparent hover:border-b-2 hover:border-[#dedede] cursor-pointer hover:text-[#fff]  text-[#a8a8a8]">
+                    Cedvel</li>
+            </ul>
+            <ul class="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 p-3 gap-5 w-full">
+                <li
+                    class=" text-center text-white flex justify-between border-b  px-3 pt-3 hover:scale-[1.1] hover:border-b-[red] cursor-pointer">
+                    <span class="text-xl">Dil</span><i class="text-right ri-arrow-drop-down-fill text-2xl"></i></li>
+                <li
+                    class=" text-center text-white flex justify-between border-b  px-3 pt-3 hover:border-b-[red] cursor-pointer">
+                    <span class="text-xl">KinoTeatr</span><i class="text-right ri-arrow-drop-down-fill text-2xl"></i>
+                </li>
+                <li
+                    class=" text-center text-white flex justify-between border-b  px-3 pt-3 hover:border-b-[red] cursor-pointer">
+                    <span class="text-xl">Bugun</span><i class="text-right ri-arrow-drop-down-fill text-2xl"></i></li>
+            </ul>
+        </div>
+        <div id="cards" class="grid gap-5 py-20 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 px-10 sm:px-5 md:px-3 bg-[#5b5b5b] ">
+            <!-- <div class="card h-[400px] rounded-2xl p-3 flex items-end relative overflow-hidden">
+                <img class="hover:scale-105 duration-300 object-cover w-full h-full rounded-2xl fill-transparent"
+                    src="./img/1747479610307_CAHIMM_(1_of_1).webp"
+                     alt="movie"   />
+                <div class="flex flex-col gap-5 absolute left-[10%] bottom-[10%] z-100 text-white">
+                    <h2 class="text-2xl font-bold">Cahim</h2>
+                    <span class="text-[.8rem]">15.05.2025</span>
+                    <div class="flex justify-between items-center">
+                        <span>18+</span>
+                        <div class="w-[25px] h-[25px]"><img src="" alt=""></div>
+                    </div>
                 </div>
-                <!-- Add Navigation -->
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
-            </div>
-        </section>
+            </div> -->
+        </div>
     </main>
 
 
@@ -133,7 +167,24 @@
             // Enable debugger
             debugger: true,
         });
+
+        function toggleShadow(clickedBtn) {
+            const tags = document.querySelectorAll(".tag");
+            tags.forEach(tag => {
+                tag.classList.remove("text-shadow-[0px_0px_14px_#fff]");
+                tag.classList.remove("text-shadow-[0px_0px_14px_red]"); // digərini də sil
+            });
+
+            // Məsələn: birincidirsə ağ, ikincidirsə qırmızı
+            if (clickedBtn.textContent.includes("1")) {
+                clickedBtn.classList.add("text-shadow-[0px_0px_14px_#fff]");
+            } else {
+                clickedBtn.classList.add("text-shadow-[0px_0px_14px_red]");
+            }
+        }
     </script>
+    <script src="./js/data.js"></script>
+    <script src="./js/script.js"></script>
 </body>
 
 </html>
